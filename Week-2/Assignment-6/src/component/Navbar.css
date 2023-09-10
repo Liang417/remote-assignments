@@ -1,0 +1,33 @@
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  animation: slideIn_Left_to_Right 1s forwards;
+}
+
+.nav-items {
+  display: flex;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 30px;
+  color: #fff;
+}
+
+a:hover {
+  background-color: #666
+}
+
+@media screen and (max-width:768px) {
+  a {
+    padding: 15px;
+  }
+
+  svg {
+    display: none;
+  }
+}
