@@ -1,4 +1,4 @@
-// TC:O(nlogn), SC:O(1)
+// TC:O(log n), SC:O(1)
 function binarySearchPosition(numbers, target) {
   let l = 0;
   let r = numbers.length - 1;
