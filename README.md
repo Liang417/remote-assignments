@@ -10,3 +10,5 @@
   - [Assignment-4](https://liang417.github.io/remote-assignments/Week-2/Assignment-4/)
   - [Assignment-5](https://github.com/Liang417/remote-assignments/blob/master/Week-2/Assignment-5/main.js)
   - [Assignment-6](https://liang417.github.io/remote-assignments/Week-2/Assignment-6/build)
+- Week-3
+  - [Assignment](https://github.com/Liang417/remote-assignments/tree/master/Week-3)
