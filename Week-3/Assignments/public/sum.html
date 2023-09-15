@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sum</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        font-size: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+      }
+      button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      input[type='number'] {
+        width: 200px;
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+        border-radius: 10px;
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      #result_1,
+      #result_2 {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Click this button to get the sum of 1 to 10</p>
+    <button type="button">Calc</button>
+    <div id="result_1"></div>
+    <label for="number">Enter an integer to calculate the sum</label>
+    <input type="number" id="number" placeholder="Enter a number" />
+    <button type="button">Calc</button>
+    <div id="result_2"></div>
+
+    <script>
+      // AJAX
+      const btn = document.querySelectorAll('button');
+      const result_1 = document.querySelector('#result_1');
+
+      // first button event
+      btn[0].addEventListener('click', function () {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:3000/data?number=10', true);
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              result_1.textContent = xhr.responseText;
+            } else {
+              result_1.textContent = 'Error: Unable to fetch data';
+            }
+          }
+        };
+
+        xhr.send();
+      });
+
+      // Fetch
+      btn[1].addEventListener('click', async () => {
+        // get the input value
+        const number = document.querySelector('#number').value;
+        const result_2 = document.querySelector('#result_2');
+
+        // if user submit blank input
+        if (number === '') {
+          result_2.textContent = 'Lack of Parameter';
+        } else {
+          await fetch(`http://localhost:3000/data?number=${number}`)
+            .then(res => res.text())
+            .then(result => (result_2.textContent = result))
+            .catch(err => (result_2.textContent = 'Error: Unable to fetch data'));
+        }
+      });
+    </script>
+  </body>
+</html>
