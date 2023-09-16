@@ -1,4 +1,5 @@
 const path = require('path');
+const errorHandler = require('../utils/errorHandler');
 
 const getName = (req, res, next) => {
   try {
@@ -10,7 +11,7 @@ const getName = (req, res, next) => {
       res.sendFile(path.join(__dirname, '../public', 'form.html'));
     }
   } catch (err) {
-    next(err);
+    next(new errorHandler());
   }
 };
 
