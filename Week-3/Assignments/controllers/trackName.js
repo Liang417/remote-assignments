@@ -1,5 +1,3 @@
-const errorHandler = require('../utils/errorHandler');
-
 const trackName = (req, res, next) => {
   try {
     const { name } = req.query;
@@ -15,7 +13,7 @@ const trackName = (req, res, next) => {
       `);
     }
   } catch (err) {
-    next(new errorHandler());
+    next(err);
   }
 };
 

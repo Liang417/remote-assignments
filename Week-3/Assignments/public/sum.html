@@ -64,12 +64,14 @@
         xhr.open('GET', 'http://localhost:3000/data?number=10', true);
 
         xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-              result_1.textContent = xhr.responseText;
-            } else {
-              result_1.textContent = 'Error: Unable to fetch data';
-            }
+          if (xhr.readyState !== 4) {
+            return;
+          }
+
+          if (xhr.status === 200) {
+            result_1.textContent = xhr.responseText;
+          } else {
+            result_1.textContent = 'Error: Unable to fetch data';
           }
         };
 

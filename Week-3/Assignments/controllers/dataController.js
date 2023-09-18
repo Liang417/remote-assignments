@@ -1,5 +1,3 @@
-const errorHandler = require('../utils/errorHandler');
-
 const getData = (req, res, next) => {
   try {
     const number = +req.query.number;
@@ -23,7 +21,7 @@ const getData = (req, res, next) => {
       res.status(200).send(`Result: ${result}`);
     }
   } catch (err) {
-    next(new errorHandler('test message', 404));
+    next(err);
   }
 };
 
