@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week-4_Assignment-2</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      button {
+        padding: 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: rgb(114, 241, 114);
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" onclick="handleClick()">Click me!</button>
+    <script>
+      function handleClick() {
+        ajax(
+          'https://remote-assignment.s3.ap-northeast-1.amazonaws.com/products',
+          function (response) {
+            render(response);
+          }
+        );
+        document.querySelector('button').style.display = 'none';
+      }
+
+      function ajax(src, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', src);
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState !== 4) {
+            return;
+          }
+
+          if (xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            callback(response);
+          } else {
+            console.error('Request failed with status:', xhr.status);
+          }
+        };
+        xhr.send();
+      }
+
+      function render(data) {
+        const product_container = document.createElement('div');
+
+        data.forEach(product => {
+          // Create necessary elements
+          const productElement = document.createElement('div');
+          const nameElement = document.createElement('h1');
+          const priceElement = document.createElement('p');
+          const descriptionElement = document.createElement('p');
+
+          // Set the each element's contents
+          nameElement.textContent = product.name;
+          priceElement.textContent = 'Price: $' + product.price;
+          descriptionElement.textContent = product.description;
+
+          // Append all child elements to productElement
+          productElement.appendChild(nameElement);
+          productElement.appendChild(priceElement);
+          productElement.appendChild(descriptionElement);
+
+          product_container.appendChild(productElement);
+        });
+        document.body.appendChild(product_container);
+      }
+    </script>
+  </body>
+</html>
