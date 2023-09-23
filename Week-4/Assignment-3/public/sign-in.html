@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sing-in</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .form-wrapper {
+        margin: 0 auto;
+        width: 50%;
+        min-width: 400px;
+      }
+
+      label {
+        font-size: 1.5rem;
+      }
+      input {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        border-radius: 5px;
+        background: #f1f1f1;
+      }
+
+      hr {
+        margin-bottom: 25px;
+      }
+
+      button {
+        width: 100%;
+        background-color: #04aa6d;
+        color: #fff;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        opacity: 0.9;
+        font-size: 1.2rem;
+      }
+
+      button:hover {
+        opacity: 1;
+      }
+
+      a {
+        text-decoration: none;
+        color: rgb(62, 62, 243);
+      }
+
+      span,
+      a {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        display: inline-block;
+      }
+
+      a:hover {
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const checkCookie = (function () {
+        if (document.cookie.includes('name')) {
+          window.location.href = 'http://localhost:8080/member';
+        }
+      })();
+    </script>
+
+    <div class="form-wrapper">
+      <div>
+        <form action="/user/sign-in" method="POST">
+          <h1>Sign in</h1>
+          <hr />
+          <label for="email"><b>Email:</b></label>
+          <input type="email" name="email" id="email" required />
+          <label for="password"><b>Password:</b> </label>
+          <input type="password" name="password" id="password" required />
+          <span>Not have any account?</span>
+          <a href="/sign-up.html">Sign-up</a>
+          <button type="submit">Sign-in</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

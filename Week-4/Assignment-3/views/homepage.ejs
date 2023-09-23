@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homepage</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      a {
+        padding: 20px 0px;
+        width: 250px;
+        font-size: 1.5rem;
+        text-decoration: none;
+        background-color: #04aa6d;
+        border-radius: 5px;
+        color: #fff;
+        opacity: 1;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+
+      a:hover {
+        opacity: 0.8;
+        scale: 0.9;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <% if (!name) { %>
+      <a href="/sign-up.html">Sign-up</a>
+      <a href="/sign-in.html">Sign-in</a>
+      <% } else {%>
+      <a href="http://localhost:8080/user/sign-out">Log out</a>
+      <% }%>
+    </div>
+  </body>
+</html>

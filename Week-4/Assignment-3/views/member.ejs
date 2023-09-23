@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1 {
+        margin-bottom: 25px;
+      }
+
+      a {
+        padding: 20px 0px;
+        width: 250px;
+        font-size: 1.5rem;
+        text-decoration: none;
+        background-color: #04aa6d;
+        border-radius: 5px;
+        color: #fff;
+        opacity: 1;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+
+      a:hover {
+        opacity: 0.8;
+        scale: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome🙂,<%= name %></h1>
+    <a href="/article.html">New Article</a>
+    <a href="/article/<%= author_id %>">My Post</a>
+    <a href="/user/sign-out">Log out</a>
+  </body>
+</html>
