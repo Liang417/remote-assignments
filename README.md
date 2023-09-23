@@ -12,3 +12,8 @@
   - [Assignment-6](https://liang417.github.io/remote-assignments/Week-2/Assignment-6/build)
 - Week-3
   - [Assignment](https://github.com/Liang417/remote-assignments/tree/master/Week-3)
+- Week-4
+  - [Assignment-1](https://github.com/Liang417/remote-assignments/tree/master/Week-4/Assignment-1)
+  - [Assignment-2](https://github.com/Liang417/remote-assignments/tree/master/Week-4/Assignment-2)
+  - [Assignment-3](https://github.com/Liang417/remote-assignments/tree/master/Week-4/Assignment-3)
+  - [Assignment-4](https://github.com/Liang417/remote-assignments/tree/master/Week-4/Assignment-4)
